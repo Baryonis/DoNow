@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+<div id="banniere">
+    <img src="{{ asset('img/banniere.png')}}" alt="bannière_DoNow">
+</div>
+
+<section>
+    <div>
+        <img src="{{ asset('img/picto.png')}}" alt="pictogramme">
+    </div>
+
+    <div id="text">
+        <h3>N'oubliez plus rien !</h3>
+        <p>
+            Lorem ipsum dolor sit amet consectetur. Sit nunc dignissim feugiat quis pulvinar suscipit tellus parturient. Eleifend massa nulla rhoncus sagittis suspendisse diam cursus. Justo commodo pellentesque eget eget.
+        </p></br>
+        <p>
+            Sed ullamcorper dui penatibus accumsan justo nisi scelerisque metus. Neque odio varius pretium malesuada tortor. Amet at ipsum in tincidunt faucibus elit duis porttitor viverra. Neque et a tincidunt a ultrices leo. Id nullam dolor eget ornare aliquet ipsum a. Quis eu neque vitae lorem purus. Imperdiet lacus risus sit aliquam maecenas mi placerat. Proin habitant id cras eget morbi sit dui. At id velit maecenas rhoncus suscipit.
+        </p>
+    </div>
+</section>
+
+<div id="cta">
+    {% if app.user %}
+    <a href="{{ path('app_notes') }}">Créer ma première note</a>
+    {% else %}
+    <a href="{{ path('app_login') }}">Créer ma première note</a>
+    {% endif %}
+</div>
+
+{% endblock %}

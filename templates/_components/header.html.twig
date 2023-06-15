@@ -1,0 +1,25 @@
+<header>
+        <div>
+            <a href="{{ path('app_home') }}"><img src="{{ asset('img/logo.png')}}" alt="logo_DoNow"></a>
+        </div>
+
+        <nav>
+            <a href="{{ path('app_home') }}">Accueil</a>
+
+            {% if app.user %}
+                <a href="{{ path('app_notes') }}">Mes notes</a>
+            {% else %}
+                <a href="{{ path('app_login') }}">Mes notes</a>
+            {% endif %}
+
+
+            <a href="{{ path('app_contact') }}">Contact</a>
+
+            {% if app.user %}
+                //Path à changer
+                <a href="{{ path('app_notes') }}">Se déconnecter</a>
+            {% else %}
+                <a href="{{ path('app_login') }}">Se connecter / Créer un compte</a>
+            {% endif %}
+        </nav>
+    </header>

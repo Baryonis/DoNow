@@ -1,0 +1,19 @@
+#form {
+    display: flex;
+    flex-direction: column;
+
+    .input {
+        width: 380px;
+        padding: 15px;
+        margin: 20px;
+        border: black 1px solid;
+        border-radius: 5px;
+    }
+
+    #message {
+        padding: 15px;
+        margin: 20px;
+        border: black 1px solid;
+        border-radius: 5px;
+    }
+}
