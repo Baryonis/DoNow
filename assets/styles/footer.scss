@@ -1,0 +1,21 @@
+footer {
+    background-color: #4E72BC;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    padding: 30px 0;
+
+
+    div {
+        padding: 30px 0;
+    }
+
+    nav a {
+        text-decoration: none;
+        font-family: 'Josefin Sans', sans-serif;
+        color: #FFFFFF;
+        padding: 0 35px;
+    }
+}
