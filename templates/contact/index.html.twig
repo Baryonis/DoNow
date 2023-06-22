@@ -9,21 +9,42 @@
     <section id="name">
         <div class="formDiv">
             <p>Prénom</p>
-            {{ form_widget(form.firstName, {'attr': {'class': 'input'}}, required) }}
+            {{ form_widget(form.firstName, {
+                'attr': {
+                    'class': 'input'
+                }}, 
+                required
+            ) }}
         </div>
         <div class="formDiv">
             <p>Nom de famille</p>
-            {{ form_widget(form.lastName, {'attr': {'class': 'input'}}, required) }}
+            {{ form_widget(form.lastName, {
+                'attr': {
+                    'class': 'input'
+                }}, 
+                required
+            ) }}
         </div>
     </section>
 
     <div class="formDiv">
         <p>Email</p>
-        {{ form_widget(form.mail, {'attr': {'class': 'input', 'placeholder': 'exemple@monmail.com'}}, required) }}
+        {{ form_widget(form.mail, {
+            'attr': {
+                'class': 'input', 
+                'placeholder': 'exemple@monmail.com'
+            }}, 
+            required
+        ) }}
     </div>
     <div class="formDiv">
         <p>Votre message</p>
-        {{ form_widget(form.message, {'attr': {'id': 'textarea'}}, required) }}
+        {{ form_widget(form.message, {
+            'attr': {
+                'id': 'textarea'
+            }}, 
+            required
+        ) }}
     </div>
 
     <div id="contactSubmit">
