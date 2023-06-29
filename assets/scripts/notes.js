@@ -89,7 +89,7 @@ cancelNoteButton.addEventListener("click", () => {
 
 const createListCard = (title, tasks) => {
   const card = document.createElement("div");
-  card.classList.add("card");
+  card.classList.add("card", "card-item");
 
   const cardTitle = document.createElement("h3");
   cardTitle.textContent = title;
@@ -125,7 +125,7 @@ const createListCard = (title, tasks) => {
 
 const createNoteCard = (title, content) => {
   const card = document.createElement("div");
-  card.classList.add("card");
+  card.classList.add("card", "card-item");
 
   const cardTitle = document.createElement("h3");
   cardTitle.textContent = title;
