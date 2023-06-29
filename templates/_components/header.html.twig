@@ -16,8 +16,7 @@
             <a href="{{ path('app_contact') }}">Contact</a>
 
             {% if app.user %}
-                //Path à changer
-                <a href="{{ path('app_notes') }}">Se déconnecter</a>
+                <a href="{{ path('app_logout') }}">Se déconnecter</a>
             {% else %}
                 <a href="{{ path('app_login') }}">Se connecter</a>
             {% endif %}
