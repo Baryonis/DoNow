@@ -99,9 +99,6 @@ const createListCard = (title, tasks) => {
   tasks.forEach((taskText) => {
     const taskItem = document.createElement("li");
     taskItem.textContent = taskText;
-    taskItem.addEventListener("click", () => {
-      taskItem.classList.toggle("completed");
-    });
     taskList.appendChild(taskItem);
   });
   card.appendChild(taskList);

@@ -7,7 +7,6 @@ footer {
     margin-top: 100px;
     padding: 30px 0;
 
-
     div {
         padding: 30px 0;
     }
@@ -17,5 +16,19 @@ footer {
         font-family: 'Josefin Sans', sans-serif;
         color: #FFFFFF;
         padding: 0 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    footer {
+        nav {
+            display: flex;
+            flex-direction: column;
+
+            a {
+                text-align: center;
+                margin: 10px 0;
+            }
+        }
     }
 }

@@ -42,6 +42,23 @@ body {
     }
 }
 
+@media screen and (max-width: 768px) {
+    body {
+        #pictoText {
+            flex-direction: column;
+
+            #text {
+                width: 70%;
+            }
+         }
+
+         #cta {
+            margin-top: 15px;
+         }
+    }
+}
+
+
 
 
 

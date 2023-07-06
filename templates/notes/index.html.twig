@@ -3,7 +3,6 @@
 {% block title %}Do Now{% endblock %}
 
 {% block body %}
-
 <div class="container">
   <div id="create-modal" class="modal">
     <div class="modal-content">
@@ -16,10 +15,10 @@
   <div id="list-modal" class="modal">
     <div class="modal-content">
       <button class="close-button">×</button>
-      <input type="text" id="list-title" placeholder="Titre de la liste" />
+      <input type="text" id="list-title" placeholder="Titre de la liste" name="title" />
       <input type="text" id="task-input" placeholder="Tâche" />
       <button id="add-task-button">Ajouter une tâche</button>
-      <ul id="task-list"></ul>
+      <ul id="task-list" name="content"></ul>
       <button id="validate-list-button">Valider</button>
       <button id="cancel-list-button">Annuler</button>
     </div>
@@ -28,8 +27,8 @@
   <div id="note-modal" class="modal">
     <div class="modal-content">
       <button class="close-button">×</button>
-      <input type="text" id="note-title" placeholder="Titre de la note" />
-      <textarea id="note-content" placeholder="Contenu de la note"></textarea>
+      <input type="text" id="note-title" placeholder="Titre de la note" name="title" />
+      <textarea id="note-content" placeholder="Contenu de la note" name="content"></textarea>
       <button id="validate-note-button">Valider</button>
       <button id="cancel-note-button">Annuler</button>
     </div>
@@ -37,5 +36,4 @@
 
   <button id="add-button">+</button>
 </div>
-
 {% endblock %}

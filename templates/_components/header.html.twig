@@ -1,24 +1,31 @@
 <header>
-        <div>
-            <a href="{{ path('app_home') }}"><img src="{{ asset('img/logo.png')}}" alt="logo_DoNow"></a>
-        </div>
+  <div>
+    <a href="{{ path('app_home') }}"><img src="{{ asset('img/logo.png')}}" alt="logo_DoNow"></a>
+  </div>
 
-        <nav>
-            <a href="{{ path('app_home') }}">Accueil</a>
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="menu-toggle-label">
+    <span class="menu-toggle-icon"></span>
+  </label>
 
-            {% if app.user %}
-                <a href="{{ path('app_notes') }}">Mes notes</a>
-            {% else %}
-                <a href="{{ path('app_login') }}">Mes notes</a>
-            {% endif %}
+  <nav role="navigation" id="menu" aria-label="Menu" class="menu">
+
+    <a href="{{ path('app_home') }}">Accueil</a>
+
+    {% if app.user %}
+      <a href="{{ path('app_notes') }}">Mes notes</a>
+    {% else %}
+      <a href="{{ path('app_login') }}">Mes notes</a>
+    {% endif %}
+
+    <a href="{{ path('app_contact') }}">Contact</a>
+
+    {% if app.user %}
+      <a href="{{ path('app_logout') }}">Se déconnecter</a>
+    {% else %}
+      <a href="{{ path('app_login') }}">Se connecter</a>
+    {% endif %}
+  </nav>
+</header>
 
 
-            <a href="{{ path('app_contact') }}">Contact</a>
-
-            {% if app.user %}
-                <a href="{{ path('app_logout') }}">Se déconnecter</a>
-            {% else %}
-                <a href="{{ path('app_login') }}">Se connecter</a>
-            {% endif %}
-        </nav>
-    </header>

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -31,6 +33,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: NoteList::class)]
+    private Collection $notelist_id;
+
+    public function __construct()
+    {
+        $this->notelist_id = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -110,6 +120,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): static
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, NoteList>
+     */
+    public function getNotelistId(): Collection
+    {
+        return $this->notelist_id;
+    }
+
+    public function addNotelistId(NoteList $notelistId): static
+    {
+        if (!$this->notelist_id->contains($notelistId)) {
+            $this->notelist_id->add($notelistId);
+            $notelistId->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNotelistId(NoteList $notelistId): static
+    {
+        if ($this->notelist_id->removeElement($notelistId)) {
+            // set the owning side to null (unless already changed)
+            if ($notelistId->getUser() === $this) {
+                $notelistId->setUser(null);
+            }
+        }
 
         return $this;
     }
