@@ -29,24 +29,11 @@ closeButtons.forEach((button) => {
   });
 });
 
+/** LISTES */
+
 createListButton.addEventListener("click", () => {
   createModal.style.display = "none";
   listModal.style.display = "flex";
-});
-
-createNoteButton.addEventListener("click", () => {
-  createModal.style.display = "none";
-  noteModal.style.display = "flex";
-});
-
-addTaskButton.addEventListener("click", () => {
-  const taskText = taskInput.value.trim();
-  if (taskText !== "") {
-    const taskItem = document.createElement("li");
-    taskItem.textContent = taskText;
-    taskList.appendChild(taskItem);
-    taskInput.value = "";
-  }
 });
 
 validateListButton.addEventListener("click", () => {
@@ -70,21 +57,14 @@ cancelListButton.addEventListener("click", () => {
   listModal.style.display = "none";
 });
 
-validateNoteButton.addEventListener("click", () => {
-  const title = noteTitleInput.value.trim();
-  const content = noteContentInput.value.trim();
-  if (title !== "" && content !== "") {
-    const card = createNoteCard(title, content);
-    cards.unshift(card);
-    container.insertBefore(card, addButton);
-    resetNoteModal();
-    noteModal.style.display = "none";
+addTaskButton.addEventListener("click", () => {
+  const taskText = taskInput.value.trim();
+  if (taskText !== "") {
+    const taskItem = document.createElement("li");
+    taskItem.textContent = taskText;
+    taskList.appendChild(taskItem);
+    taskInput.value = "";
   }
-});
-
-cancelNoteButton.addEventListener("click", () => {
-  resetNoteModal();
-  noteModal.style.display = "none";
 });
 
 const createListCard = (title, tasks) => {
@@ -120,6 +100,51 @@ const createListCard = (title, tasks) => {
   return card;
 };
 
+const editListCard = (card, title, tasks) => {
+  listModal.style.display = "flex";
+  listTitleInput.value = title;
+  taskList.innerHTML = "";
+  tasks.forEach((taskText) => {
+    const taskItem = document.createElement("li");
+    taskItem.textContent = taskText;
+    taskItem.addEventListener("click", () => {
+      taskItem.classList.toggle("completed");
+    });
+    taskList.appendChild(taskItem);
+  });
+  deleteCard(card);
+};
+
+const resetListModal = () => {
+  listTitleInput.value = "";
+  taskList.innerHTML = "";
+  taskInput.value = "";
+};
+
+/** NOTES */
+
+createNoteButton.addEventListener("click", () => {
+  createModal.style.display = "none";
+  noteModal.style.display = "flex";
+});
+
+validateNoteButton.addEventListener("click", () => {
+  const title = noteTitleInput.value.trim();
+  const content = noteContentInput.value.trim();
+  if (title !== "" && content !== "") {
+    const card = createNoteCard(title, content);
+    cards.unshift(card);
+    container.insertBefore(card, addButton);
+    resetNoteModal();
+    noteModal.style.display = "none";
+  }
+});
+
+cancelNoteButton.addEventListener("click", () => {
+  resetNoteModal();
+  noteModal.style.display = "none";
+});
+
 const createNoteCard = (title, content) => {
   const card = document.createElement("div");
   card.classList.add("card", "card-item");
@@ -149,26 +174,16 @@ const createNoteCard = (title, content) => {
   return card;
 };
 
-const editListCard = (card, title, tasks) => {
-  listModal.style.display = "flex";
-  listTitleInput.value = title;
-  taskList.innerHTML = "";
-  tasks.forEach((taskText) => {
-    const taskItem = document.createElement("li");
-    taskItem.textContent = taskText;
-    taskItem.addEventListener("click", () => {
-      taskItem.classList.toggle("completed");
-    });
-    taskList.appendChild(taskItem);
-  });
-  deleteCard(card);
-};
-
 const editNoteCard = (card, title, content) => {
   noteModal.style.display = "flex";
   noteTitleInput.value = title;
   noteContentInput.value = content;
   deleteCard(card);
+};
+
+const resetNoteModal = () => {
+  noteTitleInput.value = "";
+  noteContentInput.value = "";
 };
 
 const deleteCard = (card) => {
@@ -177,15 +192,4 @@ const deleteCard = (card) => {
     cards.splice(index, 1);
     card.remove();
   }
-};
-
-const resetListModal = () => {
-  listTitleInput.value = "";
-  taskList.innerHTML = "";
-  taskInput.value = "";
-};
-
-const resetNoteModal = () => {
-  noteTitleInput.value = "";
-  noteContentInput.value = "";
 };

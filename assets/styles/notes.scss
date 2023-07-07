@@ -32,10 +32,19 @@
     padding: 20px;
     background-color: white;
     border-radius: 5px;
+
+    #create-list-button, #create-note-button {
+      color: white;
+    }
+  }
+
+  #add-task-button, #validate-list-button, #cancel-list-button, #validate-note-button, #cancel-note-button {
+    color: white;
   }
 
   .close-button {
     align-self: flex-end;
+    font-weight: bolder;
     color: black;
     border: none;
     background-color: transparent;
@@ -80,11 +89,11 @@ button {
   background-color: #172C49;
   padding: 10px;
   border-radius: 5px;
-  color: white;
   margin: 10px;
 }
 
 #add-button {
+  color: white;
   position: relative;
   z-index: 999;
   width: 50px;
